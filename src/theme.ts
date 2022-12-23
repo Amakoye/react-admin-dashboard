@@ -2,9 +2,11 @@ import { PaletteMode, Theme } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { createContext, useMemo, useState } from "react";
 
+const defaultFont = ["Source Sans Pro", "sans-serif"].join(",");
+
 // color design tokens
-export const tokens = (mode?: PaletteMode) => ({
-  ...(mode === "dark"
+export const tokens = (mode?: PaletteMode) =>
+  mode === "dark"
     ? {
         grey: {
           100: "#e0e0e0",
@@ -118,8 +120,7 @@ export const tokens = (mode?: PaletteMode) => ({
           800: "#c3c6fd",
           900: "#e1e2fe",
         },
-      }),
-});
+      };
 
 //mui theme settings
 export const themeSettings = (mode: PaletteMode) => {
@@ -163,30 +164,27 @@ export const themeSettings = (mode: PaletteMode) => {
           }),
     },
     typography: {
-      fontFamliy: ["Source Sans Pro", "sans-serif"].join(","),
+      fontFamliy: defaultFont,
+      allVariants: {
+        fontFamily: defaultFont,
+      },
       fontSize: 12,
       h1: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 40,
       },
       h2: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 32,
       },
       h3: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 24,
       },
       h4: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 20,
       },
       h5: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 16,
       },
       h6: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 14,
       },
     },
